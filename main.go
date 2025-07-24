@@ -133,12 +133,13 @@ func shuntingYard(expr string) (string, []string) {
 	var stack []rune
 	var steps []string
 
-	for i := 0; i < len(expr); i++ {
-		c := rune(expr[i])
+	runes := []rune(expr)
+	for i := 0; i < len(runes); i++ {
+		c := runes[i]
 
-		if c == '\\' && i+1 < len(expr) {
-			output = append(output, '\\', rune(expr[i+1]))
-			steps = append(steps, fmt.Sprintf("Escaped char: \\%c -> Output: %s", expr[i+1], string(output)))
+		if c == '\\' && i+1 < len(runes) {
+			output = append(output, '\\', runes[i+1])
+			steps = append(steps, fmt.Sprintf("Escaped char: \\%c -> Output: %s", runes[i+1], string(output)))
 			i++
 			continue
 		}

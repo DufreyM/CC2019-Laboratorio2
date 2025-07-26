@@ -1,5 +1,7 @@
 package main
 
+//Explicación en el README
+
 import (
 	"bufio"
 	"fmt"
